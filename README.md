@@ -4,6 +4,14 @@
 #### [AI23] R. Jiang*, Z. Wang*, J. Yong, P. Jeph, Q. Chen, Y. Kobayashi, X. Song, T. Suzumura, S. Fukushima, "MegaCRN: Meta-Graph Convolutional Recurrent Network for Spatio-Temporal Modeling", Artificial intelligence, 2023. (Extended Journal Version under Review)
 #### Code and data will be available soon. 
 
+#### Cite
+@article{jiang2022spatio,
+  title={Spatio-Temporal Meta-Graph Learning for Traffic Forecasting},
+  author={Jiang, Renhe and Wang, Zhaonan and Yong, Jiawei and Jeph, Puneet and Chen, Quanjun and Kobayashi, Yasumasa and Song, Xuan and Fukushima, Shintaro and Suzumura, Toyotaro},
+  journal={arXiv preprint arXiv:2211.14701},
+  year={2022}
+}
+
 #### Preprints
 
 [![Arxiv link](https://img.shields.io/static/v1?label=arXiv&message=MegaCRN&color=red&logo=arxiv)](https://arxiv.org/abs/2211.14701)
