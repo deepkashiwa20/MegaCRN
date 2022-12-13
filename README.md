@@ -1,6 +1,7 @@
 ### MegaCRN
 
-#### [AAAI23] R. Jiang*, Z. Wang*, J. Yong, P. Jeph, Q. Chen, Y. Kobayashi, X. Song, S. Fukushima, T. Suzumura, "Spatio-Temporal Meta-Graph Learning for Traffic Forecasting", Proc. of Thirty-Seventh AAAI Conference on Artificial Intelligence (AAAI), 2023.
+#### [AAAI23] R. Jiang*, Z. Wang*, J. Yong, P. Jeph, Q. Chen, Y. Kobayashi, X. Song, S. Fukushima, T. Suzumura, "Spatio-Temporal Meta-Graph Learning for Traffic Forecasting", Proc. of Thirty-Seventh AAAI Conference on Artificial Intelligence (AAAI), 2023. (Accepted to appear)
+#### [AI23] R. Jiang*, Z. Wang*, J. Yong, P. Jeph, Q. Chen, Y. Kobayashi, X. Song, T. Suzumura, S. Fukushima, "MegaCRN: Meta-Graph Convolutional Recurrent Network for Spatio-Temporal Modeling", Artificial intelligence, 2023. (Extended journal version, under review)
 #### Code and data will be available soon. 
 
 #### Preprints
