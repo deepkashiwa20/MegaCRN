@@ -297,25 +297,25 @@ if torch.cuda.is_available(): torch.cuda.manual_seed(opt.seed)
 if opt.dataset == 'PEMS03':
     num_variable = 358
     startday, endday, freq = '2018-09-01 00:00', '2018-11-30 23:59', '5min'
-    data_path = '../data/PEMS03.npz'
+    data_path = '../data_PEMS3478/PEMS03.npz'
     data = np.load(data_path)['data'][:, :, 0]
     data_time = getDayTimestamp_(startday, endday, freq, num_variable)
 elif opt.dataset == 'PEMS04':
     num_variable = 307
     startday, endday, freq = '2018-01-01 00:00', '2018-02-28 23:59', '5min'
-    data_path = '../data/PEMS04.npz'
+    data_path = '../data_PEMS3478/PEMS04.npz'
     data = np.load(data_path)['data'][:, :, 0]
     data_time = getDayTimestamp_(startday, endday, freq, num_variable)
 elif opt.dataset == 'PEMS07':
     num_variable = 883
     startday, endday, freq = '2017-05-01 00:00', '2017-08-06 23:59', '5min'
-    data_path = '../data/PEMS07.npz'
+    data_path = '../data_PEMS3478/PEMS07.npz'
     data = np.load(data_path)['data'][:, :, 0]
     data_time = getDayTimestamp_(startday, endday, freq, num_variable)
 elif opt.dataset == 'PEMS08':
     num_variable = 170
     startday, endday, freq = '2016-07-01 00:00', '2016-08-31 23:59', '5min'
-    data_path = '../data/PEMS08.npz'
+    data_path = '../data_PEMS3478/PEMS08.npz'
     data = np.load(data_path)['data'][:, :, 0]
     data_time = getDayTimestamp_(startday, endday, freq, num_variable)
 else:
