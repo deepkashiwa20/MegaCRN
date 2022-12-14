@@ -35,8 +35,8 @@
 * The directory is structured in a flat style and only with two levels.
 * The datasets are stored in DATA directories, and the model codes are put in model_DATA directories. 
 * The training and testing function is merged into one file, we can just run "python traintest_MegaCRN.py" under each model directory.
-* Also we can run "python MegaCRN.py" to simply check the model architecture without feeding the training data under each model directory.
-* Also in the model directories, metrics.py file contains the metric functions and utils.py file contains a set of supporting functions.
+* Also we can run "python MegaCRN.py" to simply check the model architecture without feeding the data.
+* Also under model directory, metrics.py file contains the metric functions and utils.py file contains a set of supporting functions.
 
 
 ## Requirements
