@@ -57,7 +57,7 @@
 * python traintest_MegaCRN.py --dataset=DATA --gpu=GPU_DEVICE_ID 
 * DATA = {PEMS03, PEMS04, PEMS07, PEMS08}
 
-##### How to run our model on our data EXPY-TKY?
+##### How to run our model on EXPY-TKY?
 * cd model_EXPYTKY
 * python traintest_MegaCRN.py --dataset=DATA --gpu=GPU_DEVICE_ID 
 * DATA = {EXPYTKY, EXPYTKY*} 
@@ -93,3 +93,13 @@ The default hyperparameters used in our paper are written in model/traintest_Meg
 The hyperparameters for PEMS03,04,07,08 in model_PEMS3478/traintest_MegaCRN.py are the same as the above except: 
 * argument("--loss", type=str, default='MAE', help="MAE, MSE, MaskMAE")
 * argument("--patience", type=float, default=200, help="patience used for early stop")
+
+#### Arguments (EXPY-TKY)
+The hyperparameters for PEMS03,04,07,08 in model_PEMS3478/traintest_MegaCRN.py are the same as the above except the following. Because EXPY-TKY data is structured by month, where '202110' and '202111' used as training and validation dataset, '202112' used as testing dataset.
+* argument('--dataset', type=str, choices=['EXPYTKY', 'EXPYTKY*'], default='EXPYTKY', help='which dataset to run')
+* argument('--month', type=str, default='202112', help='which experiment setting (month) to run as testing data')
+* argument('--val_ratio', type=float, default=0.25, help='the ratio of validation data among the trainval ratio')
+* argument('--seq_len', type=int, default=6, help='sequence length of prediction')
+* argument('--his_len', type=int, default=6, help='sequence length of historical observation')
+* argument("--loss", type=str, default='MAE', help="MAE, MSE, MaskMAE")
+* add_argument('--seed', type=int, default=1234, help='random seed')
