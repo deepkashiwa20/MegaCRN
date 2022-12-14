@@ -57,7 +57,7 @@
 #### How to run our model on PEMS03,04,07,08?
 
 #### Arguments (Default)
-The default hyperparameters used in our paper have been written in model/traintest_MegaCRN.py file as follows.
+The default hyperparameters used in our paper are written in model/traintest_MegaCRN.py as follows.
 * argument('--dataset', type=str, choices=['METRLA', 'PEMSBAY'], default='METRLA', help='which dataset to run')
 * argument('--trainval_ratio', type=float, default=0.8, help='the ratio of training and validation data among the total')
 * argument('--val_ratio', type=float, default=0.125, help='the ratio of validation data among the trainval ratio')
@@ -83,6 +83,6 @@ The default hyperparameters used in our paper have been written in model/trainte
 * argument('--seed', type=int, default=100, help='random seed.')
 
 #### Arguments (PEMS03,04,07,08)
-The hyperparameters for PEMS03,04,07,08 written in model_PEMS3478/traintest_MegaCRN.py are the same as the above except: 
+The hyperparameters for PEMS03,04,07,08 in model_PEMS3478/traintest_MegaCRN.py are the same as the above except: 
 * argument("--loss", type=str, default='MAE', help="MAE, MSE, MaskMAE")
 * argument("--patience", type=float, default=200, help="patience used for early stop")
