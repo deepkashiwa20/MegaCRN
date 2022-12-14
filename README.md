@@ -46,18 +46,18 @@
 * Also we can run "python MegaCRN.py" to simply check the model architecture without feeding the data.
 * Also under model directory, metrics.py file contains the metric functions and utils.py file contains a set of supporting functions.
 
-#### How to run our model (general command)?
+##### How to run our model (general command)?
 * cd model
 * python traintest_MegaCRN.py --dataset=DATA --gpu=GPU_DEVICE_ID 
 * DATA = {METRLA, PEMSBAY}
 * For PEMSBAY dataset, please first upzip ./PEMSBAY/pems-bay.zip to get ./PEMSBAY/pems-bay.h5 file.
 
-#### How to run our model on PEMS03,04,07,08?
+##### How to run our model on PEMS03,04,07,08?
 * cd model_PEMS3478
 * python traintest_MegaCRN.py --dataset=DATA --gpu=GPU_DEVICE_ID 
 * DATA = {PEMS03, PEMS04, PEMS07, PEMS08}
 
-#### How to run our model on our data EXPY-TKY?
+##### How to run our model on our data EXPY-TKY?
 * cd model_EXPYTKY
 * python traintest_MegaCRN.py --dataset=DATA --gpu=GPU_DEVICE_ID 
 * DATA = {EXPYTKY, EXPYTKY*} 
