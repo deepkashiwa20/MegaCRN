@@ -31,7 +31,7 @@
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/megacrn-meta-graph-convolutional-recurrent/traffic-prediction-on-pemsd7)](https://paperswithcode.com/sota/traffic-prediction-on-pemsd7?p=megacrn-meta-graph-convolutional-recurrent)
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/megacrn-meta-graph-convolutional-recurrent/traffic-prediction-on-pemsd8)](https://paperswithcode.com/sota/traffic-prediction-on-pemsd8?p=megacrn-meta-graph-convolutional-recurrent)
 
-### Requirements
+#### Requirements
 * Python 3.8.8 -> Anaconda Distribution
 * pytorch 1.9.1 -> py3.8_cuda11.1_cudnn8.0.5_0
 * pandas 1.2.4 
@@ -39,24 +39,24 @@
 * torch-summary 1.4.5 -> pip install torch-summary https://pypi.org/project/torch-summary/ (must necessary)
 * jpholiday -> pip install jpholiday (not must, but if you want onehottime)
 
-### General Description
+#### General Description
 * The directory is structured in a flat style and only with two levels.
 * The datasets are stored in DATA directories, and the model codes are put in model_DATA directories. 
 * The training and testing function is merged into one file, we can just run "python traintest_MegaCRN.py" under each model directory.
 * Also we can run "python MegaCRN.py" to simply check the model architecture without feeding the data.
 * Also under model directory, metrics.py file contains the metric functions and utils.py file contains a set of supporting functions.
 
-### How to run our model (general command)?
+#### How to run our model (general command)?
 * cd model
 * python traintest_MegaCRN.py --dataset=DATA --gpu=YOUR_GPU_DEVICE_ID 
 * DATA = {METRLA, PEMSBAY}
 * For PEMSBAY dataset, please first upzip ./PEMSBAY/pems-bay.zip to get ./PEMSBAY/pems-bay.h5 file.
 
-### How to run our model on our data EXPY-TKY?
+#### How to run our model on our data EXPY-TKY?
 
-### How to run our model on PEMS03,04,07,08?
+#### How to run our model on PEMS03,04,07,08?
 
-### Arguments (Default)
+#### Arguments (Default)
 * The hyperparameters used in our paper have been written in each ./model_DATA/traintest_MegaCRN.py file as follows.
 * parser.add_argument('--gpu', type=int, default=0, help='which gpu to use')
 * parser.add_argument("--epoch", type=int, default=200, help="number of epochs of training")
