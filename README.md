@@ -34,7 +34,7 @@
 ## General Description
 * The directory is structured in a flat style and only with two levels.
 * The datasets are stored in DATA directories, and the model codes are put in model_DATA directories. 
-** The training function and the validation function is merged into one file, all you need is to run python traintest_MegaCRN.py under each model directory.
+* The training function and the validation function is merged into one file, all you need is to run python traintest_MegaCRN.py under each model directory.
 * Entering the model directory for a certain dataset, we can find the model class file MegaCRN.py and the running program traintest_MegaCRN.py. 
 * We can run "python MegaCRN.py" to simply check the model architecture without feeding the training data.
 * We can run "python traintest_MegaCRN.py" to train and test the model.
