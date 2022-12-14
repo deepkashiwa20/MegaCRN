@@ -92,7 +92,9 @@ The default hyperparameters used in our paper are written in model/traintest_Meg
 #### Arguments (PEMS03,04,07,08)
 The hyperparameters for PEMS03,04,07,08 in model_PEMS3478/traintest_MegaCRN.py are the same as the above except the following. </br>
 Differing from train:valid:test=7:1:2 for METR-LA and PEMS-BAY, the setting for PEMS03,04,07,08 is train:valid:test=6:2:2.
-* argument('--val_ratio', type=float, default=0.25, help='the ratio of validation data among the trainval ratio')
+* argument('--dataset', type=str, choices=['PEMS03', 'PEMS04', 'PEMS07', 'PEMS08'], default='PEMS03', help='which dataset to run')
+* argument('--trainval_ratio', type=float, default=0.8, help='the ratio of training and validation data among the total')
+* argument('--val_ratio', type=float, default=0.25, help='the ratio of validation data among the trainval ratio') # this makes train:valid:test 6:2:2
 * argument("--loss", type=str, default='MAE', help="MAE, MSE, MaskMAE")
 * argument("--patience", type=float, default=200, help="patience used for early stop")
 
