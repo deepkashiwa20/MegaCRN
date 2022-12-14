@@ -57,7 +57,7 @@
 #### How to run our model on PEMS03,04,07,08?
 
 #### Arguments (Default)
-* The default hyperparameters used in our paper have been written in /model/traintest_MegaCRN.py file as follows.
+The default hyperparameters used in our paper have been written in /model/traintest_MegaCRN.py file as follows.
 * argument('--dataset', type=str, choices=['METRLA', 'PEMSBAY'], default='METRLA', help='which dataset to run')
 * argument('--trainval_ratio', type=float, default=0.8, help='the ratio of training and validation data among the total')
 * argument('--val_ratio', type=float, default=0.125, help='the ratio of validation data among the trainval ratio')
