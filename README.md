@@ -95,9 +95,10 @@ The hyperparameters for PEMS03,04,07,08 in model_PEMS3478/traintest_MegaCRN.py a
 * argument("--patience", type=float, default=200, help="patience used for early stop")
 
 #### Arguments (EXPY-TKY)
-The hyperparameters for PEMS03,04,07,08 in model_PEMS3478/traintest_MegaCRN.py are the same as the above except the following. </br>
+*** The hyperparameters for EXPY-TKY in model_EXPYTKY/raintest_MegaCRN.py are the same as the above except the following. </br>
 Because EXPY-TKY data is structured by month, where '202110' and '202111' used as training and validation dataset, '202112' used as testing dataset. 
-By further setting val_ratio as 0.25 (that meas 25% data of '202110' and '202111' as valid data), the ratio for train:valid:test is roughly equal to 3:1:2. 
+By further setting val_ratio as 0.25 (that meas 25% data of '202110' and '202111' as valid data), the ratio for train:valid:test is roughly 3:1:2. </br>
+
 * argument('--dataset', type=str, choices=['EXPYTKY', 'EXPYTKY*'], default='EXPYTKY', help='which dataset to run')
 * argument('--month', type=str, default='202112', help='which experiment setting (month) to run as testing data')
 * argument('--val_ratio', type=float, default=0.25, help='the ratio of validation data among the trainval ratio')
