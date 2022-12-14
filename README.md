@@ -108,5 +108,5 @@ The time interval for EXPY-TKY is 10 minutes, thus observation/prediction horizo
 * argument('--val_ratio', type=float, default=0.25, help='the ratio of validation data among the trainval ratio')
 * argument('--seq_len', type=int, default=6, help='sequence length of prediction')
 * argument('--his_len', type=int, default=6, help='sequence length of historical observation')
-* argument("--loss", type=str, default=**'MAE'**, help="MAE, MSE, MaskMAE")
+* argument("--loss", type=str, default='MAE', help="MAE, MSE, MaskMAE")
 * argument('--seed', type=int, default=1234, help='random seed')
