@@ -5,11 +5,11 @@
 
 #### Code and data are now available (more data will come). Please kindly cite the following bibtex.
 ```bibtex
-@article{jiang2022spatio, 
-title={Spatio-Temporal Meta-Graph Learning for Traffic Forecasting},
-author={Jiang, Renhe and Wang, Zhaonan and Yong, Jiawei and Jeph, Puneet and Chen, Quanjun and Kobayashi, Yasumasa and Song, Xuan and Fukushima, Shintaro and Suzumura, Toyotaro},
-journal={arXiv preprint arXiv:2211.14701},
-year={2022}
+@article{jiang2022spatio,
+  title={Spatio-Temporal Meta-Graph Learning for Traffic Forecasting},
+  author={Jiang, Renhe and Wang, Zhaonan and Yong, Jiawei and Jeph, Puneet and Chen, Quanjun and Kobayashi, Yasumasa and Song, Xuan and Fukushima, Shintaro and Suzumura, Toyotaro},
+  journal={arXiv preprint arXiv:2211.14701},
+  year={2022}
 }
 ```
 
