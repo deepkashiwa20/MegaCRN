@@ -120,9 +120,9 @@ def trainModel(name, mode, XS, YS, YCov):
     train_size = int(trainval_size * (1 - opt.val_ratio))
     train_data = torch.utils.data.Subset(trainval_data, list(range(0, train_size)))
     val_data = torch.utils.data.Subset(trainval_data, list(range(train_size, trainval_size)))
-    train_iter = torch.utils.data.DataLoader(train_data, opt.batch_size, shuffle=False)
-    val_iter = torch.utils.data.DataLoader(val_data, opt.batch_size, shuffle=False)
-    trainval_iter = torch.utils.data.DataLoader(trainval_data, opt.batch_size, shuffle=False)
+    train_iter = torch.utils.data.DataLoader(train_data, opt.batch_size)
+    val_iter = torch.utils.data.DataLoader(val_data, opt.batch_size)
+    trainval_iter = torch.utils.data.DataLoader(trainval_data, opt.batch_size)
     optimizer = torch.optim.Adam(model.parameters(), lr=opt.lr)
     
     if opt.loss == 'MAE': 
@@ -190,7 +190,7 @@ def testModel(name, mode, XS, YS, YCov):
     XS = scaler.transform(XS)
     XS_torch, YS_torch, YCov_torch = torch.Tensor(XS).to(device), torch.Tensor(YS).to(device), torch.Tensor(YCov).to(device)
     test_data = torch.utils.data.TensorDataset(XS_torch, YS_torch, YCov_torch)
-    test_iter = torch.utils.data.DataLoader(test_data, opt.batch_size, shuffle=False)
+    test_iter = torch.utils.data.DataLoader(test_data, opt.batch_size)
     loss, loss1, loss2, loss3, YS_pred = evaluateModel(model, test_iter)
     logger.info('YS.shape, YS_pred.shape,', YS.shape, YS_pred.shape)
     YS, YS_pred = np.squeeze(YS), np.squeeze(YS_pred)
