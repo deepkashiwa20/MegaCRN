@@ -90,8 +90,8 @@ The default hyperparameters used in our paper are written in model/traintest_Meg
 * argument('--seed', type=int, default=100, help='random seed.')
 
 #### Arguments (PEMS03,04,07,08)
-The hyperparameters for PEMS03,04,07,08 in model_PEMS3478/traintest_MegaCRN.py are the same as the above except the following. <\br>
-Note that differring from METR-LA and PEMS-BAY train:valid:test=7:1:2, 
+The hyperparameters for PEMS03,04,07,08 in model_PEMS3478/traintest_MegaCRN.py are the same as the above except the following. </br>
+Differing from train:valid:test=7:1:2 for METR-LA and PEMS-BAY, the setting for PEMS03,04,07,08 is train:valid:test=6:2:2.  
 * argument("--loss", type=str, default='MAE', help="MAE, MSE, MaskMAE")
 * argument("--patience", type=float, default=200, help="patience used for early stop")
 
