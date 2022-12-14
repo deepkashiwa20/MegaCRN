@@ -48,18 +48,18 @@
 
 #### How to run our model (general command)?
 * cd model
-* python traintest_MegaCRN.py --dataset=DATA --gpu=YOUR_GPU_DEVICE_ID 
+* python traintest_MegaCRN.py --dataset=DATA --gpu=GPU_DEVICE_ID 
 * DATA = {METRLA, PEMSBAY}
 * For PEMSBAY dataset, please first upzip ./PEMSBAY/pems-bay.zip to get ./PEMSBAY/pems-bay.h5 file.
 
 #### How to run our model on PEMS03,04,07,08?
 * cd model_PEMS3478
-* python traintest_MegaCRN.py --dataset=DATA --gpu=YOUR_GPU_DEVICE_ID 
+* python traintest_MegaCRN.py --dataset=DATA --gpu=GPU_DEVICE_ID 
 * DATA = {PEMS03, PEMS04, PEMS07, PEMS08}
 
 #### How to run our model on our data EXPY-TKY?
 * cd model_EXPYTKY
-* python traintest_MegaCRN.py --dataset=DATA --gpu=YOUR_GPU_DEVICE_ID 
+* python traintest_MegaCRN.py --dataset=DATA --gpu=GPU_DEVICE_ID 
 * DATA = {EXPYTKY, EXPYTKY*} 
 * EXPYTKY with 1843 links is the data used in our paper; EXPYTKY* is a superset of EXPYTKY that contains all 2841 expy-tky links.
 
