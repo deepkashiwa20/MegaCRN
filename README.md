@@ -103,4 +103,4 @@ The hyperparameters for EXPY-TKY in model_EXPYTKY/raintest_MegaCRN.py are the sa
 * argument('--seq_len', type=int, default=6, help='sequence length of prediction')
 * argument('--his_len', type=int, default=6, help='sequence length of historical observation')
 * argument("--loss", type=str, default='MAE', help="MAE, MSE, MaskMAE")
-* add_argument('--seed', type=int, default=1234, help='random seed')
+* argument('--seed', type=int, default=1234, help='random seed')
