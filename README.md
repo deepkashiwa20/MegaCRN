@@ -32,8 +32,9 @@
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/megacrn-meta-graph-convolutional-recurrent/traffic-prediction-on-pemsd8)](https://paperswithcode.com/sota/traffic-prediction-on-pemsd8?p=megacrn-meta-graph-convolutional-recurrent)
 
 ## General Description
-* The directory is structured in a flat style and only with two levels. 
+* The directory is structured in a flat style and only with two levels.
 * The datasets are stored in DATA directories, and the model codes are put in model_DATA directories. 
+** The training function and the validation function is merged into one file, all you need is to run python traintest_MegaCRN.py under each model directory.
 * Entering the model directory for a certain dataset, we can find the model class file MegaCRN.py and the running program traintest_MegaCRN.py. 
 * We can run "python MegaCRN.py" to simply check the model architecture without feeding the training data.
 * We can run "python traintest_MegaCRN.py" to train and test the model.
@@ -49,7 +50,7 @@
 * jpholiday -> pip install jpholiday (not must, but if you want onehottime)
 
 ## How to run our model (general)?
-The training function and the validation function is merged into one file, all you need is to run python traintest_MegaCRN.py under each model directory.
+
 * cd model
 * python traintest_MegaCRN.py --dataset=DATA --gpu=YOUR_GPU_DEVICE_ID 
 * DATA = {METRLA, PEMSBAY}
