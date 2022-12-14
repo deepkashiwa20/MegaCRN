@@ -61,7 +61,7 @@
 * cd model_EXPYTKY
 * python traintest_MegaCRN.py --dataset=DATA --gpu=YOUR_GPU_DEVICE_ID 
 * DATA = {EXPYTKY, EXPYTKY*} 
-* EXPYTKY with 1843 links is the data used in our paper, EXPYTKY* is a superset of EXPYTKY that contains all 2841 expy-tky links.
+* EXPYTKY with 1843 links is the data used in our paper; EXPYTKY* is a superset of EXPYTKY that contains all 2841 expy-tky links.
 
 #### Arguments (Default)
 The default hyperparameters used in our paper are written in model/traintest_MegaCRN.py as follows.
