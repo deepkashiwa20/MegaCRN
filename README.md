@@ -97,7 +97,7 @@ Note that differring from METR-LA and PEMS-BAY train:valid:test=7:1:2,
 
 #### Arguments (EXPY-TKY)
 The hyperparameters for EXPY-TKY in model_EXPYTKY/raintest_MegaCRN.py are the same as the default except the following. </br>
-EXPY-TKY data is structured by month, where '202110' and '202111' used as training and validation, '202112' used as testing. </br>
+EXPY-TKY data is structured by month: '202110' and '202111' used as training and validation and '202112' used as testing. </br>
 By further setting val_ratio as 0.25 (that meas 25% data of '202110' and '202111' as valid data), the ratio for train:valid:test is roughly 3:1:2. </br>
 The time interval for EXPY-TKY is 10 minutes, thus observation/prediction horizon are both set to 6, to perform 1-hour-to-1-hour forecasting. </br>
 
