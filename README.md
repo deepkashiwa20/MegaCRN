@@ -11,6 +11,12 @@
   journal={arXiv preprint arXiv:2211.14701},
   year={2022}
 }
+@article{jiang2022megacrn,
+  title={MegaCRN: Meta-Graph Convolutional Recurrent Network for Spatio-Temporal Modeling},
+  author={Jiang, Renhe and Wang, Zhaonan and Yong, Jiawei and Jeph, Puneet and Chen, Quanjun and Kobayashi, Yasumasa and Song, Xuan and Suzumura, Toyotaro and Fukushima, Shintaro},
+  journal={arXiv preprint arXiv:2212.05989},
+  year={2022}
+}
 ```
 
 #### Preprints
