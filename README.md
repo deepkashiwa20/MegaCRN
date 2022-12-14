@@ -97,9 +97,10 @@ The hyperparameters for PEMS03,04,07,08 in model_PEMS3478/traintest_MegaCRN.py a
 #### Arguments (EXPY-TKY)
 The hyperparameters for PEMS03,04,07,08 in model_PEMS3478/traintest_MegaCRN.py are the same as the above except the following. 
 Because EXPY-TKY data is structured by month, where '202110' and '202111' used as training and validation dataset, '202112' used as testing dataset. 
+By further setting val_ratio as 0.25 (that meas 25% data of '202110' and '202111' as valid data), the ratio for train:valid:test is roughly equal to 3:1:2. 
 * argument('--dataset', type=str, choices=['EXPYTKY', 'EXPYTKY*'], default='EXPYTKY', help='which dataset to run')
 * argument('--month', type=str, default='202112', help='which experiment setting (month) to run as testing data')
-* argument('--val_ratio', type=float, default=0.25, help='the ratio of validation data among the trainval ratio') # this makes train:valid:test=3:1:2
+* argument('--val_ratio', type=float, default=0.25, help='the ratio of validation data among the trainval ratio')
 * argument('--seq_len', type=int, default=6, help='sequence length of prediction')
 * argument('--his_len', type=int, default=6, help='sequence length of historical observation')
 * argument("--loss", type=str, default='MAE', help="MAE, MSE, MaskMAE")
