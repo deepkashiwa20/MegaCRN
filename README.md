@@ -3,7 +3,7 @@
 #### [AAAI23] R. Jiang*, Z. Wang*, J. Yong, P. Jeph, Q. Chen, Y. Kobayashi, X. Song, S. Fukushima, T. Suzumura, "Spatio-Temporal Meta-Graph Learning for Traffic Forecasting", Proc. of Thirty-Seventh AAAI Conference on Artificial Intelligence (AAAI), 2023. (Accepted to Appear)
 #### [AI23] R. Jiang*, Z. Wang*, J. Yong, P. Jeph, Q. Chen, Y. Kobayashi, X. Song, T. Suzumura, S. Fukushima, "MegaCRN: Meta-Graph Convolutional Recurrent Network for Spatio-Temporal Modeling", Artificial intelligence, 2023. (Extended Journal Version under Review)
 
-#### Code and data are now available. If you find our work useful, please kindly cite the following. 
+#### Code and data are now available (more data will come). If you find our work useful, please kindly cite the following. 
 @article{jiang2022spatio,
   title={Spatio-Temporal Meta-Graph Learning for Traffic Forecasting},
   author={Jiang, Renhe and Wang, Zhaonan and Yong, Jiawei and Jeph, Puneet and Chen, Quanjun and Kobayashi, Yasumasa and Song, Xuan and Fukushima, Shintaro and Suzumura, Toyotaro},
@@ -81,3 +81,8 @@ The default hyperparameters used in our paper have been written in /model/traint
 * argument('--lamb1', type=float, default=0.01, help='lamb1 value for compact loss')
 * argument('--gpu', type=int, default=0, help='which gpu to use')
 * argument('--seed', type=int, default=100, help='random seed.')
+
+#### Arguments (PEMS03,04,07,08)
+The hyperparameters used for PEMS03,04,07,08 are the same as the above except: 
+* argument("--loss", type=str, default='MAE', help="MAE, MSE, MaskMAE")
+* argument("--patience", type=float, default=200, help="patience used for early stop")
