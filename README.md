@@ -83,6 +83,6 @@ The default hyperparameters used in our paper have been written in model/trainte
 * argument('--seed', type=int, default=100, help='random seed.')
 
 #### Arguments (PEMS03,04,07,08)
-The hyperparameters used for PEMS03,04,07,08 written in model_PEMS3478/traintest_MegaCRN.py are the same as the above except: 
+The hyperparameters for PEMS03,04,07,08 written in model_PEMS3478/traintest_MegaCRN.py are the same as the above except: 
 * argument("--loss", type=str, default='MAE', help="MAE, MSE, MaskMAE")
 * argument("--patience", type=float, default=200, help="patience used for early stop")
