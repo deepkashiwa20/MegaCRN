@@ -62,7 +62,7 @@ year={2022}
 * DATA = {EXPYTKY, EXPYTKY*} 
 * EXPYTKY with 1843 links is the data used in our paper; EXPYTKY* is a superset of EXPYTKY that contains all 2841 expy-tky links.
 
-#### Arguments (Default)
+#### Arguments
 The default hyperparameters used in our paper are written in model/traintest_MegaCRN.py as follows.
 * argument('--dataset', type=str, choices=['METRLA', 'PEMSBAY'], default='METRLA', help='which dataset to run')
 * argument('--trainval_ratio', type=float, default=0.8, help='the ratio of training and validation data among the total')
@@ -88,7 +88,7 @@ The default hyperparameters used in our paper are written in model/traintest_Meg
 * argument('--gpu', type=int, default=0, help='which gpu to use')
 * argument('--seed', type=int, default=100, help='random seed.')
 
-#### Arguments (PEMS03,04,07,08)
+##### Arguments (PEMS03,04,07,08)
 The hyperparameters for PEMS03,04,07,08 in model_PEMS3478/traintest_MegaCRN.py are the same as the above except the following. </br>
 Differing from train:valid:test=7:1:2 for METR-LA and PEMS-BAY, the setting for PEMS03,04,07,08 is train:valid:test=6:2:2.
 * argument('--dataset', type=str, choices=['PEMS03', 'PEMS04', 'PEMS07', 'PEMS08'], default='PEMS03', help='which dataset to run')
@@ -96,7 +96,7 @@ Differing from train:valid:test=7:1:2 for METR-LA and PEMS-BAY, the setting for 
 * argument("--loss", type=str, default='MAE', help="MAE, MSE, MaskMAE")
 * argument("--patience", type=float, default=200, help="patience used for early stop")
 
-#### Arguments (EXPY-TKY)
+##### Arguments (EXPY-TKY)
 The hyperparameters for EXPY-TKY in model_EXPYTKY/raintest_MegaCRN.py are the same as the default except the following. </br>
 EXPY-TKY data is structured by month, where '202110' and '202111' used as training and validation and '202112' used as testing. </br>
 By further setting val_ratio as 0.25 (that meas 25% data of '202110' and '202111' as valid data), the ratio for train:valid:test is roughly 3:1:2. </br>
