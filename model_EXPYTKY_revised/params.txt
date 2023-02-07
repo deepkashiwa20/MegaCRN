@@ -1,0 +1,22 @@
+[common]
+N_link = 2841
+adjdis_path = ../data_EXPYTKY/expy-tky_adjdis.npy
+adj01_path = ../data_EXPYTKY/expy-tky_adj01.npy
+road_path = ../data_EXPYTKY/expy-tky_link_info.csv
+
+[202110]
+traffic_path = ../data_EXPYTKY/expy-tky_202110.csv.gz
+
+[202111] 
+traffic_path = ../data_EXPYTKY/expy-tky_202111.csv.gz
+
+[202112] 
+test_month = ['202112']
+train_month = ['202110', '202111']
+traffic_path = ../data_EXPYTKY/expy-tky_202112.csv.gz
+
+[EXPYTKY]
+subroad_path = ../data_EXPYTKY/tokyo_link_idx.csv
+
+[EXPYTKY*]
+subroad_path = ../data_EXPYTKY/tokyoall_link_idx.csv
