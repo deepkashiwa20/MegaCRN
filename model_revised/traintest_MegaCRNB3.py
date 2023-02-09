@@ -200,7 +200,7 @@ if args.dataset == 'METRLA':
 elif args.dataset == 'PEMSBAY':
     data_path = f'../{args.dataset}/pems-bay.h5'
     args.num_nodes = 325
-    args.rnn_units = 128
+    # args.rnn_units = 128
 else:
     pass # including more datasets in the future    
 
