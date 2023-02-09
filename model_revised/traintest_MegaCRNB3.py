@@ -26,7 +26,7 @@ def print_model(model):
 
 def get_model():  
     model = MegaCRN(num_nodes=args.num_nodes, input_dim=args.input_dim, output_dim=args.output_dim, horizon=args.horizon, 
-                    rnn_units=args.rnn_units, num_layers=args.num_rnn_layers, mem_num=args.mem_num, mem_dim=args.mem_dim, 
+                    rnn_units=args.rnn_units, num_layers=args.num_rnn_layers, mem_num=args.mem_num, mem_dim=args.mem_dim, cheb_k = args.max_diffusion_step,
                     memory_type=args.memory, meta_type=args.meta, cl_decay_steps=args.cl_decay_steps, use_curriculum_learning=args.use_curriculum_learning).to(device)
     return model
 
@@ -70,8 +70,8 @@ def evaluate(model, mode):
             loss1 = masked_mae_loss(y_pred, y_true) # masked_mae_loss(y_pred, y_true)
             separate_loss = nn.TripletMarginLoss(margin=1.0)
             compact_loss = nn.MSELoss()
-            loss2 = separate_loss(query, pos, neg)
-            loss3 = compact_loss(query, pos)
+            loss2 = separate_loss(query, pos.detach(), neg.detach())
+            loss3 = compact_loss(query, pos.detach())
             loss = loss1 + args.lamb * loss2 + args.lamb1 * loss3
             losses.append(loss.item())
             # Followed the DCRNN TensorFlow Implementation
@@ -125,8 +125,8 @@ def traintest_model():
             loss1 = masked_mae_loss(y_pred, y_true) # masked_mae_loss(y_pred, y_true)
             separate_loss = nn.TripletMarginLoss(margin=1.0)
             compact_loss = nn.MSELoss()
-            loss2 = separate_loss(query, pos, neg)
-            loss3 = compact_loss(query, pos)
+            loss2 = separate_loss(query, pos.detach(), neg.detach())
+            loss3 = compact_loss(query, pos.detach())
             loss = loss1 + args.lamb * loss2 + args.lamb1 * loss3
             losses.append(loss.item())
             batches_seen += 1
@@ -161,16 +161,17 @@ def traintest_model():
 
 #########################################################################################    
 parser = argparse.ArgumentParser()
-parser.add_argument('--dataset', type=str, choices=['METRLA', 'PEMSBAY'], default='PEMSBAY', help='which dataset to run')
+parser.add_argument('--dataset', type=str, choices=['METRLA', 'PEMSBAY'], default='METRLA', help='which dataset to run')
 parser.add_argument('--trainval_ratio', type=float, default=0.8, help='the ratio of training and validation data among the total')
 parser.add_argument('--val_ratio', type=float, default=0.125, help='the ratio of validation data among the trainval ratio')
-parser.add_argument('--num_nodes', type=int, default=325, help='num_nodes')
+parser.add_argument('--num_nodes', type=int, default=207, help='num_nodes')
 parser.add_argument('--seq_len', type=int, default=12, help='input sequence length')
 parser.add_argument('--horizon', type=int, default=12, help='output sequence length')
 parser.add_argument('--input_dim', type=int, default=1, help='number of input channel')
 parser.add_argument('--output_dim', type=int, default=1, help='number of output channel')
+parser.add_argument('--max_diffusion_step', type=int, default=3, help='max diffusion step or Cheb K')
 parser.add_argument('--num_rnn_layers', type=int, default=1, help='number of rnn layers')
-parser.add_argument('--rnn_units', type=int, default=128, help='number of rnn units')
+parser.add_argument('--rnn_units', type=int, default=64, help='number of rnn units')
 parser.add_argument('--mem_num', type=int, default=20, help='number of meta-nodes/prototypes')
 parser.add_argument('--mem_dim', type=int, default=64, help='dimension of meta-nodes/prototypes')
 parser.add_argument("--memory", type=eval, choices=[True, False], default='True', help="whether to use memory: True or False")
@@ -199,6 +200,7 @@ if args.dataset == 'METRLA':
 elif args.dataset == 'PEMSBAY':
     data_path = f'../{args.dataset}/pems-bay.h5'
     args.num_nodes = 325
+    args.rnn_units = 128
 else:
     pass # including more datasets in the future    
 
@@ -243,6 +245,7 @@ logger.info('input_dim', args.input_dim)
 logger.info('output_dim', args.output_dim)
 logger.info('num_rnn_layers', args.num_rnn_layers)
 logger.info('rnn_units', args.rnn_units)
+logger.info('max_diffusion_step', args.max_diffusion_step)
 logger.info('mem_num', args.mem_num)
 logger.info('mem_dim', args.mem_dim)
 logger.info('memory', args.memory)
@@ -253,6 +256,7 @@ logger.info('compact loss lamb1', args.lamb1)
 logger.info('epochs', args.epochs)
 logger.info('batch_size', args.batch_size)
 logger.info('base_lr', args.base_lr)
+logger.info('patience', args.patience)
 logger.info('steps', args.steps)
 logger.info('lr_decay_ratio', args.lr_decay_ratio)
 logger.info('use_curriculum_learning', args.use_curriculum_learning)
