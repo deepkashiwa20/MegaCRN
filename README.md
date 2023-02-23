@@ -21,13 +21,6 @@
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/spatio-temporal-meta-graph-learning-for/traffic-prediction-on-pems-bay)](https://paperswithcode.com/sota/traffic-prediction-on-pems-bay?p=spatio-temporal-meta-graph-learning-for)
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/spatio-temporal-meta-graph-learning-for/traffic-prediction-on-expy-tky-1)](https://paperswithcode.com/sota/traffic-prediction-on-expy-tky-1?p=spatio-temporal-meta-graph-learning-for)
 
-#### Performance on Traffic Flow Benmarks
-
-[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/megacrn-meta-graph-convolutional-recurrent/traffic-prediction-on-pemsd3)](https://paperswithcode.com/sota/traffic-prediction-on-pemsd3?p=megacrn-meta-graph-convolutional-recurrent)
-[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/megacrn-meta-graph-convolutional-recurrent/traffic-prediction-on-pemsd4)](https://paperswithcode.com/sota/traffic-prediction-on-pemsd4?p=megacrn-meta-graph-convolutional-recurrent)
-[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/megacrn-meta-graph-convolutional-recurrent/traffic-prediction-on-pemsd7)](https://paperswithcode.com/sota/traffic-prediction-on-pemsd7?p=megacrn-meta-graph-convolutional-recurrent)
-[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/megacrn-meta-graph-convolutional-recurrent/traffic-prediction-on-pemsd8)](https://paperswithcode.com/sota/traffic-prediction-on-pemsd8?p=megacrn-meta-graph-convolutional-recurrent)
-
 #### Requirements
 * Python 3.8.8 -> Anaconda Distribution
 * pytorch 1.9.1 -> py3.8_cuda11.1_cudnn8.0.5_0
