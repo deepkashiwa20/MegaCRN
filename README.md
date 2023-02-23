@@ -23,9 +23,9 @@
 
 
 #### Updated results (arXiv and camera-ready will be revised soon)
-| Benchmark   | MAE，RMSE, MAPE @ 3rd step | MAE，RMSE, MAPE @ 6th step | MAE，RMSE, MAPE @ 12th step |
-| :-----------| :--------------------------| :------------------------- | :--------------------------|
-| METR-LA     | 2.52, 4.94, 6.44% | 2.93, 6.06, 7.96\% | 3.38, 7.23, 9.72% |
+|Benchmark |MAE, RMSE, MAPE @3rd step|MAE, RMSE, MAPE @6th step|MAE, RMSE, MAPE @12th step|
+|::---------|::------------------------|::------------------------|::-------------------------|
+| METR-LA  | 2.52, 4.94, 6.44% | 2.93, 6.06, 7.96\% | 3.38, 7.23, 9.72% |
 
 #### Requirements
 * Python 3.8.8 -> Anaconda Distribution
