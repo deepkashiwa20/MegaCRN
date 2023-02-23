@@ -21,6 +21,12 @@
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/spatio-temporal-meta-graph-learning-for/traffic-prediction-on-pems-bay)](https://paperswithcode.com/sota/traffic-prediction-on-pems-bay?p=spatio-temporal-meta-graph-learning-for)
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/spatio-temporal-meta-graph-learning-for/traffic-prediction-on-expy-tky-1)](https://paperswithcode.com/sota/traffic-prediction-on-expy-tky-1?p=spatio-temporal-meta-graph-learning-for)
 
+
+#### Updated results (arXiv and camera-ready will be revised soon)
+| Benchmark   | MAE，RMSE, MAPE @ 3rd step | MAE，RMSE, MAPE @ 6th step | MAE，RMSE, MAPE @ 12th step|
+| ------------| ---------------- | :------------- | ------------------- | ------------- |
+| METR-LA     | 2.52, 4.94, 6.44% | 2.93, 6.06, 7.96\% | 3.38, 7.23, 9.72% |
+
 #### Requirements
 * Python 3.8.8 -> Anaconda Distribution
 * pytorch 1.9.1 -> py3.8_cuda11.1_cudnn8.0.5_0
