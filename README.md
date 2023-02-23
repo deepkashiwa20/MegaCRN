@@ -42,7 +42,7 @@
 * python traintest_MegaCRN.py --dataset=DATA --gpu=GPU_DEVICE_ID 
 * DATA = {METRLA, PEMSBAY}
 * For PEMSBAY dataset, please first upzip ./PEMSBAY/pems-bay.zip to get ./PEMSBAY/pems-bay.h5 file.
-* You can also try two baselines in a similar way: GTS and Vanilla GCRN.
+* You can also run two baselines GTS and GCRN similary.
 
 ##### How to run our model on EXPY-TKY?
 * cd model_EXPYTKY
