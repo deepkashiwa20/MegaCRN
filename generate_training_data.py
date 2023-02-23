@@ -110,14 +110,13 @@ def main(args):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument(
-        "--output_dir", type=str, default="data/", help="Output directory."
-    )
-    parser.add_argument(
-        "--traffic_df_filename",
-        type=str,
-        default="data/metr-la.h5",
-        help="Raw traffic readings.",
-    )
+    parser.add_argument('--dataset', type=str, choices=['METRLA', 'PEMSBAY'], default='METRLA', help='which dataset to run')
+    parser.add_argument("--output_dir", type=str, default="METRLA/", help="Output directory.")
+    parser.add_argument("--traffic_df_filename", type=str, default="METRLA/metr-la.h5", help="Raw traffic readings.")
     args = parser.parse_args()
+    args.output_dir = f'{args.dataset}/'
+    if args.dataset == 'METRLA':
+        args.traffic_df_filename = f'{args.dataset}/metr-la.h5'
+    elif args.dataset == 'PEMSBAY':
+        args.traffic_df_filename = f'{args.dataset}/pems-bay.h5'
     main(args)

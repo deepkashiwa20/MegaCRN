@@ -12,7 +12,7 @@ from torchsummary import summary
 import argparse
 import logging
 from utils import StandardScaler, DataLoader, masked_mae_loss, masked_mape_loss, masked_mse_loss, masked_rmse_loss
-from MegaCRN import MegaCRN
+from GCRN import GCRN
 
 def print_model(model):
     param_count = 0
@@ -25,9 +25,9 @@ def print_model(model):
     return
 
 def get_model():  
-    model = MegaCRN(num_nodes=args.num_nodes, input_dim=args.input_dim, output_dim=args.output_dim, horizon=args.horizon, 
-                    rnn_units=args.rnn_units, num_layers=args.num_rnn_layers, mem_num=args.mem_num, mem_dim=args.mem_dim, 
-                    cheb_k = args.max_diffusion_step, cl_decay_steps=args.cl_decay_steps, use_curriculum_learning=args.use_curriculum_learning).to(device)
+    model = GCRN(num_nodes=args.num_nodes, input_dim=args.input_dim, output_dim=args.output_dim, horizon=args.horizon, 
+                    rnn_units=args.rnn_units, num_layers=args.num_rnn_layers, cheb_k = args.max_diffusion_step,
+                    cl_decay_steps=args.cl_decay_steps, use_curriculum_learning=args.use_curriculum_learning).to(device)
     return model
 
 def prepare_x_y(x, y):
@@ -59,15 +59,10 @@ def evaluate(model, mode):
         l_12, m_12, r_12 = [], [], []
         for x, y in data_iter:
             x, y, ycov = prepare_x_y(x, y)
-            output, h_att, query, pos, neg = model(x, ycov)
+            output = model(x, ycov)
             y_pred = scaler.inverse_transform(output)
             y_true = scaler.inverse_transform(y)
-            loss1 = masked_mae_loss(y_pred, y_true) # masked_mae_loss(y_pred, y_true)
-            separate_loss = nn.TripletMarginLoss(margin=1.0)
-            compact_loss = nn.MSELoss()
-            loss2 = separate_loss(query, pos.detach(), neg.detach())
-            loss3 = compact_loss(query, pos.detach())
-            loss = loss1 + args.lamb * loss2 + args.lamb1 * loss3
+            loss = masked_mae_loss(y_pred, y_true) # masked_mae_loss(y_pred, y_true)
             losses.append(loss.item())
             # Followed the DCRNN TensorFlow Implementation
             maes.append(masked_mae_loss(y_pred, y_true).item())
@@ -114,15 +109,10 @@ def traintest_model():
         for x, y in data_iter:
             optimizer.zero_grad()
             x, y, ycov = prepare_x_y(x, y)
-            output, h_att, query, pos, neg = model(x, ycov, y, batches_seen)
+            output = model(x, ycov, y, batches_seen)
             y_pred = scaler.inverse_transform(output)
             y_true = scaler.inverse_transform(y)
-            loss1 = masked_mae_loss(y_pred, y_true) # masked_mae_loss(y_pred, y_true)
-            separate_loss = nn.TripletMarginLoss(margin=1.0)
-            compact_loss = nn.MSELoss()
-            loss2 = separate_loss(query, pos.detach(), neg.detach())
-            loss3 = compact_loss(query, pos.detach())
-            loss = loss1 + args.lamb * loss2 + args.lamb1 * loss3
+            loss = masked_mae_loss(y_pred, y_true) # masked_mae_loss(y_pred, y_true)
             losses.append(loss.item())
             batches_seen += 1
             loss.backward()
@@ -167,11 +157,7 @@ parser.add_argument('--output_dim', type=int, default=1, help='number of output 
 parser.add_argument('--max_diffusion_step', type=int, default=3, help='max diffusion step or Cheb K')
 parser.add_argument('--num_rnn_layers', type=int, default=1, help='number of rnn layers')
 parser.add_argument('--rnn_units', type=int, default=64, help='number of rnn units')
-parser.add_argument('--mem_num', type=int, default=20, help='number of meta-nodes/prototypes')
-parser.add_argument('--mem_dim', type=int, default=64, help='dimension of meta-nodes/prototypes')
 parser.add_argument("--loss", type=str, default='mask_mae_loss', help="mask_mae_loss")
-parser.add_argument('--lamb', type=float, default=0.01, help='lamb value for separate loss')
-parser.add_argument('--lamb1', type=float, default=0.01, help='lamb1 value for compact loss')
 parser.add_argument("--epochs", type=int, default=200, help="number of epochs of training")
 parser.add_argument("--patience", type=int, default=20, help="patience used for early stop")
 parser.add_argument("--batch_size", type=int, default=64, help="size of the batches")
@@ -196,7 +182,7 @@ elif args.dataset == 'PEMSBAY':
 else:
     pass # including more datasets in the future    
 
-model_name = 'MegaCRN'
+model_name = 'GCRN'
 timestring = time.strftime('%Y%m%d%H%M%S', time.localtime())
 path = f'../save/{args.dataset}_{model_name}_{timestring}'
 logging_path = f'{path}/{model_name}_{timestring}_logging.txt'
@@ -238,11 +224,7 @@ logger.info('output_dim', args.output_dim)
 logger.info('num_rnn_layers', args.num_rnn_layers)
 logger.info('rnn_units', args.rnn_units)
 logger.info('max_diffusion_step', args.max_diffusion_step)
-logger.info('mem_num', args.mem_num)
-logger.info('mem_dim', args.mem_dim)
 logger.info('loss', args.loss)
-logger.info('separate loss lamb', args.lamb)
-logger.info('compact loss lamb1', args.lamb1)
 logger.info('batch_size', args.batch_size)
 logger.info('epochs', args.epochs)
 logger.info('patience', args.patience)

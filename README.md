@@ -1,9 +1,8 @@
 ### MegaCRN: Meta-Graph Convolutional Recurrent Network
 
 #### [AAAI23] R. Jiang*, Z. Wang*, J. Yong, P. Jeph, Q. Chen, Y. Kobayashi, X. Song, S. Fukushima, T. Suzumura, "Spatio-Temporal Meta-Graph Learning for Traffic Forecasting", Proc. of Thirty-Seventh AAAI Conference on Artificial Intelligence (AAAI), 2023. (Accepted to Appear)
-#### [AI23] R. Jiang*, Z. Wang*, J. Yong, P. Jeph, Q. Chen, Y. Kobayashi, X. Song, T. Suzumura, S. Fukushima, "MegaCRN: Meta-Graph Convolutional Recurrent Network for Spatio-Temporal Modeling", Artificial intelligence, 2023. (Extended Journal Version under Review)
 
-#### Code and data are now available (more data will come). Please kindly cite the following bibtex.
+#### Code and data are now available.
 ```bibtex
 @article{jiang2022spatio,
   title={Spatio-Temporal Meta-Graph Learning for Traffic Forecasting},
@@ -11,31 +10,21 @@
   journal={arXiv preprint arXiv:2211.14701},
   year={2022}
 }
-@article{jiang2022megacrn,
-  title={MegaCRN: Meta-Graph Convolutional Recurrent Network for Spatio-Temporal Modeling},
-  author={Jiang, Renhe and Wang, Zhaonan and Yong, Jiawei and Jeph, Puneet and Chen, Quanjun and Kobayashi, Yasumasa and Song, Xuan and Suzumura, Toyotaro and Fukushima, Shintaro},
-  journal={arXiv preprint arXiv:2212.05989},
-  year={2022}
-}
 ```
 
 #### Preprints
-
 [![Arxiv link](https://img.shields.io/static/v1?label=arXiv&message=MegaCRN&color=red&logo=arxiv)](https://arxiv.org/abs/2211.14701)
-[![Arxiv link](https://img.shields.io/static/v1?label=arXiv&message=MegaCRN(journal)&color=red&logo=arxiv)](https://arxiv.org/abs/2212.05989)
 
 #### Performance on Traffic Speed Benchmarks
 
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/spatio-temporal-meta-graph-learning-for/traffic-prediction-on-metr-la)](https://paperswithcode.com/sota/traffic-prediction-on-metr-la?p=spatio-temporal-meta-graph-learning-for)
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/spatio-temporal-meta-graph-learning-for/traffic-prediction-on-pems-bay)](https://paperswithcode.com/sota/traffic-prediction-on-pems-bay?p=spatio-temporal-meta-graph-learning-for)
-
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/spatio-temporal-meta-graph-learning-for/traffic-prediction-on-expy-tky)](https://paperswithcode.com/sota/traffic-prediction-on-expy-tky?p=spatio-temporal-meta-graph-learning-for)
 
 #### Performance on Traffic Flow Benmarks
 
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/megacrn-meta-graph-convolutional-recurrent/traffic-prediction-on-pemsd3)](https://paperswithcode.com/sota/traffic-prediction-on-pemsd3?p=megacrn-meta-graph-convolutional-recurrent)
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/megacrn-meta-graph-convolutional-recurrent/traffic-prediction-on-pemsd4)](https://paperswithcode.com/sota/traffic-prediction-on-pemsd4?p=megacrn-meta-graph-convolutional-recurrent)
-
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/megacrn-meta-graph-convolutional-recurrent/traffic-prediction-on-pemsd7)](https://paperswithcode.com/sota/traffic-prediction-on-pemsd7?p=megacrn-meta-graph-convolutional-recurrent)
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/megacrn-meta-graph-convolutional-recurrent/traffic-prediction-on-pemsd8)](https://paperswithcode.com/sota/traffic-prediction-on-pemsd8?p=megacrn-meta-graph-convolutional-recurrent)
 
@@ -55,15 +44,12 @@
 * Also under model directory, metrics.py file contains the metric functions and utils.py file contains a set of supporting functions.
 
 ##### How to run our model (general command)?
+* python generate_training_data.py --dataset=DATA
 * cd model
 * python traintest_MegaCRN.py --dataset=DATA --gpu=GPU_DEVICE_ID 
 * DATA = {METRLA, PEMSBAY}
 * For PEMSBAY dataset, please first upzip ./PEMSBAY/pems-bay.zip to get ./PEMSBAY/pems-bay.h5 file.
-
-##### How to run our model on PEMS03,04,07,08?
-* cd model_PEMS3478
-* python traintest_MegaCRN.py --dataset=DATA --gpu=GPU_DEVICE_ID 
-* DATA = {PEMS03, PEMS04, PEMS07, PEMS08}
+* You can also try two baselines in a similar way: GTS and Vanilla GCRN.
 
 ##### How to run our model on EXPY-TKY?
 * cd model_EXPYTKY
@@ -73,48 +59,11 @@
 
 #### Arguments
 The default hyperparameters used in our paper are written in model/traintest_MegaCRN.py as follows.
-* argument('--dataset', type=str, choices=['METRLA', 'PEMSBAY'], default='METRLA', help='which dataset to run')
-* argument('--trainval_ratio', type=float, default=0.8, help='the ratio of training and validation data among the total')
-* argument('--val_ratio', type=float, default=0.125, help='the ratio of validation data among the trainval ratio')
-* argument('--seq_len', type=int, default=12, help='sequence length of prediction')
-* argument('--his_len', type=int, default=12, help='sequence length of historical observation')
-* argument('--channelin', type=int, default=1, help='number of input channel')
-* argument('--channelout', type=int, default=1, help='number of output channel')
-* argument("--loss", type=str, default='MaskMAE', help="MAE, MSE, MaskMAE")
-* argument("--epoch", type=int, default=200, help="number of epochs of training")
-* argument("--batch_size", type=int, default=64, help="size of the batches")
-* argument("--lr", type=float, default=0.001, help="adam: learning rate")
-* argument("--patience", type=float, default=10, help="patience used for early stop")
-* argument('--num_layers', type=int, default=1, help='number of layers')
-* argument('--hiddenunits', type=int, default=32, help='number of hidden units')
-* argument('--mem_num', type=int, default=10, help='number of meta-nodes/prototypes')
-* argument('--mem_dim', type=int, default=32, help='dimension of meta-nodes/prototypes')
-* argument("--memory", type=eval, choices=[True, False], default='True', help="whether to use memory: True or False")
-* argument("--meta", type=eval, choices=[True, False], default='True', help="whether to use meta-graph: True or False")
-* argument("--decoder", type=str, choices=['sequence', 'stepwise'], default='stepwise', help="decoder type: sequence or stepwise")
-* argument('--lamb', type=float, default=0.01, help='lamb value for separate loss')
-* argument('--lamb1', type=float, default=0.01, help='lamb1 value for compact loss')
-* argument('--gpu', type=int, default=0, help='which gpu to use')
-* argument('--seed', type=int, default=100, help='random seed.')
-
-##### Arguments (PEMS03,04,07,08)
-The hyperparameters for PEMS03,04,07,08 in model_PEMS3478/traintest_MegaCRN.py are the same as the above except the following. </br>
-Differing from train:valid:test=7:1:2 for METR-LA and PEMS-BAY, the setting for PEMS03,04,07,08 is train:valid:test=6:2:2.
-* argument('--dataset', type=str, choices=['PEMS03', 'PEMS04', 'PEMS07', 'PEMS08'], default='PEMS03', help='which dataset to run')
-* argument('--val_ratio', type=float, default=0.25, help='the ratio of validation data among the trainval ratio') # this makes 6:2:2.
-* argument("--loss", type=str, default='MAE', help="MAE, MSE, MaskMAE")
-* argument("--patience", type=float, default=200, help="patience used for early stop")
+The ratio for train:valid:test is roughly 7:1:2, generated by generate_training_data.py.
+Please check the codes between parser = argparse.ArgumentParser() and args = parser.parse_args().
 
 ##### Arguments (EXPY-TKY)
 The hyperparameters for EXPY-TKY in model_EXPYTKY/raintest_MegaCRN.py are the same as the default except the following. </br>
 EXPY-TKY data is structured by month, where '202110' and '202111' used as training and validation and '202112' used as testing. </br>
 By further setting val_ratio as 0.25 (that meas 25% data of '202110' and '202111' as valid data), the ratio for train:valid:test is roughly 3:1:2. </br>
 The time interval for EXPY-TKY is 10 minutes, thus observation/prediction horizon are both set to 6, to perform 1-hour-to-1-hour forecasting. </br>
-
-* argument('--dataset', type=str, choices=['EXPYTKY', 'EXPYTKY*'], default='EXPYTKY', help='which dataset to run')
-* argument('--month', type=str, default='202112', help='which experiment setting (month) to run as testing data')
-* argument('--val_ratio', type=float, default=0.25, help='the ratio of validation data among the trainval ratio')
-* argument('--seq_len', type=int, default=6, help='sequence length of prediction')
-* argument('--his_len', type=int, default=6, help='sequence length of historical observation')
-* argument("--loss", type=str, default='MAE', help="MAE, MSE, MaskMAE")
-* argument('--seed', type=int, default=1234, help='random seed')
