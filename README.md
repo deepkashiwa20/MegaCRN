@@ -23,14 +23,14 @@
 
 
 #### Updated Results (arXiv and camera-ready papers will be revised accordingly very soon)
-|Benchmark   |MAE RMSE MAPE @3rd step|MAE RMSE MAPE @6th step|MAE RMSE MAPE @12th step|
+|Benchmark   |MAE/RMSE/MAPE@3rd step|MAE/RMSE/MAPE@6th step|MAE/RMSE/MAPE@12th step|
 |:---------- |:----------------|:----------------|:----------------|
-| METR-LA    | 2.52 4.94 6.44% | 2.93 6.06 7.96% | 3.38 7.23 9.72% |
-| PEMS-BAY   | 1.28 2.72 2.67% | 1.60 3.68 3.57% | 1.88 4.42 4.41% |
+| METR-LA    |2.52/4.94/6.44%|2.93/6.06/7.96%|3.38/7.23/9.72%|
+| PEMS-BAY   |1.28/2.72/2.67%|1.60/3.68/3.57%|1.88/4.42/4.41%|
 
-|Benchmark   |MAE RMSE MAPE @1st step|MAE RMSE MAPE @3rd step|MAE RMSE MAPE @6th step|
+|Benchmark   |MAE/RMSE/MAPE@1st step|MAE/RMSE/MAPE@3rd step|MAE/RMSE/MAPE@6th step|
 |:---------- |:----------------|:----------------|:----------------|
-| EXPY-TKY   | 5.81 9.20 24.49% | 6.44 10.33 28.92% | 6.83 11.04 31.02% |
+| EXPY-TKY   |5.81/9.20/24.49%|6.44/10.33/28.92%|6.83/11.04/31.02%|
 
 #### Requirements
 * Python 3.8.8 -> Anaconda Distribution
