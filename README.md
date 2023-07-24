@@ -4,11 +4,14 @@
 
 #### Code and data are now available.
 ```bibtex
-@article{jiang2022spatio,
-  title={Spatio-Temporal Meta-Graph Learning for Traffic Forecasting},
+@inproceedings{jiang2023spatio,
+  title={Spatio-temporal meta-graph learning for traffic forecasting},
   author={Jiang, Renhe and Wang, Zhaonan and Yong, Jiawei and Jeph, Puneet and Chen, Quanjun and Kobayashi, Yasumasa and Song, Xuan and Fukushima, Shintaro and Suzumura, Toyotaro},
-  journal={arXiv preprint arXiv:2211.14701},
-  year={2022}
+  booktitle={Proceedings of the AAAI Conference on Artificial Intelligence},
+  volume={37},
+  number={7},
+  pages={8078--8086},
+  year={2023}
 }
 ```
 
